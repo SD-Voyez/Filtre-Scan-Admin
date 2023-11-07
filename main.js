@@ -13,6 +13,6 @@ document.getElementById('executeButton').addEventListener('click', function() {
         })
         .catch(error => {
             console.error('Erreur dans la requête API :', error);
-            alert('Une erreur est survenue lors de l'exécution du script.');
+            alert('Une erreur est survenue lors de exécution du script.');
         });
 });
