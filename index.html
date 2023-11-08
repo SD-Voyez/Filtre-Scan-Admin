@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exécuter Script</title>
+    <style>
+        /* Centrer le bouton sur la page */
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <button id="executeButton">Exécuter le Script</button>
+    </div>
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('executeButton').addEventListener('click', function() {
+            fetch('/execute-script')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log('Résultat du script :', data.result);
+                        // You can display the results on the page as needed.
+                        alert('Le script a été exécuté avec succès. Vérifiez la console pour les résultats.');
+                    } else {
+                        console.error('Erreur dans le script :', data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erreur dans la requête API :', error);
+                    alert('Une erreur est survenue lors de l'exécution du script.');
+                });
+        });
+    </script>
+</body>
+</html>
