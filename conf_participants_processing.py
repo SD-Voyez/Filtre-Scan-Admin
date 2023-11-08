@@ -3,8 +3,8 @@ import pandas as pd
 from datetime import datetime, timedelta
 
 # Charger les fichiers Excel
-horaire_conf = pd.read_excel('horaire conf.xlsx')
-export1 = pd.read_excel('export1.xlsx')
+horaire_conf = pd.read_excel('horaires-confs.xlsx')
+export1 = pd.read_excel('petit-audit.xlsx')
 
 # Convertir les colonnes de date en datetime
 horaire_conf['début'] = pd.to_datetime(horaire_conf['début'], format='%d/%m/%Y %Hh%M')
@@ -18,22 +18,22 @@ horaire_conf['durée'] = horaire_conf['fin'] - horaire_conf['début']
 participants_intervals = {}
 
 for index, row in export1.iterrows():
-    prenom = row['Prénom']
+    email = row['Email']
     date = row['Date']
     
-    if prenom not in participants_intervals:
-        participants_intervals[prenom] = [date]
+    if email not in participants_intervals:
+        participants_intervals[email] = [date]
     else:
         # Si la dernière date est une entrée, alors celle-ci est une sortie
-        if len(participants_intervals[prenom]) % 2 != 0:
-            participants_intervals[prenom].append(date)
+        if len(participants_intervals[email]) % 2 != 0:
+            participants_intervals[email].append(date)
         # Sinon, c'est une nouvelle entrée
         else:
-            participants_intervals[prenom].append(date)
+            participants_intervals[email].append(date)
 
 # Transformer la liste de dates en tuples (entrée, sortie)
-for prenom, dates in participants_intervals.items():
-    participants_intervals[prenom] = list(zip(dates[::2], dates[1::2]))
+for email, dates in participants_intervals.items():
+    participants_intervals[email] = list(zip(dates[::2], dates[1::2]))
 
 # Calculer la présence pour chaque participant et chaque conférence
 resultats_50_correct = []
@@ -52,10 +52,10 @@ for index, conf in horaire_conf.iterrows():
         
         # Vérifier si le participant a assisté à au moins 50% de la conférence
         if temps_presence >= conf_duree * 0.5:
-            resultats_50_correct.append({'Conférence': conf_name, 'Nom': participant})
+            resultats_50_correct.append({'Conférence': conf_name, 'Email': participant})
 
-# Convertir les résultats en DataFrame
-resultats_50_correct_df = pd.DataFrame(resultats_50_correct)
+# Convertir directement la liste en DataFrame avec les noms de colonnes spécifiés
+resultats_50_correct_df = pd.DataFrame(resultats_50_correct, columns=['Conférence', 'Email'])
 
-# Afficher tout le tableau des résultats
-print(resultats_50_correct_df)
+# Exporter le DataFrame vers un fichier Excel sans l'index
+resultats_50_correct_df.to_excel('Exports/export.xlsx', index=False)
