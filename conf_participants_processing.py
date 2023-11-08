@@ -3,8 +3,8 @@ import pandas as pd
 from datetime import datetime, timedelta
 
 # Charger les fichiers Excel
-horaire_conf = pd.read_excel('horaires-confs.xlsx')
-export1 = pd.read_excel('petit-audit.xlsx')
+horaire_conf = pd.read_excel('Exports/horaires-confs.xlsx')
+export1 = pd.read_excel('Exports/petit-audit.xlsx')
 
 # Convertir les colonnes de date en datetime
 horaire_conf['début'] = pd.to_datetime(horaire_conf['début'], format='%d/%m/%Y %Hh%M')
