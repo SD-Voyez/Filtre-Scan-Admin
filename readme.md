@@ -1,9 +1,9 @@
 ## Solution pour trier les données Conférences Techniques
-### Fichier => Scans entrées / Scans sorties
+### Méthode de scan choisie => Scans entrées / Scans sorties
 
 #### Process : 
 1. Indiquez les horaires des conférences à jour dans un fichier horaires-confs.csv
-2. Télécharger le fichier, ici pour l'exemple "export-audit.xlsx", des scans de la journée correspondant à la salle de conf. => [Admin Scan](https://www.enerj-meeting.com)
+2. Télécharger le fichier des scans de la journée correspondant à la salle de conf. (ici pour l'exemple "export-audit.xlsx") => à DL depuis l'[Admin Scan](https://www.enerj-meeting.com)
 3. Traiter le fichier à l'aide du script "1-Clean.py" => 2 fichiers seront créer, un reporting et un fichier "1-Export-propre.csv"
 4. Lancer le deuxième script "2-Attribution-Conf.py" qui générera le fichier final "2-Export-attribution.csv"
 
