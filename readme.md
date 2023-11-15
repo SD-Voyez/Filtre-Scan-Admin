@@ -11,7 +11,7 @@
 ## Idée référente & solution imaginée
 #### Schéma situationnel :
 Modèle exemple :
-![[Schema-config-visiteur-conf.png]]
+[[Schema-config-visiteur-conf.png]]
 #### Prompt utilisé :
 Voici deux fichier cvs :
 - 1 fichier "horaires-confs.csv" avec les horaires de plusieurs conférences qui ont eu le lieu le jour de l'événement.
