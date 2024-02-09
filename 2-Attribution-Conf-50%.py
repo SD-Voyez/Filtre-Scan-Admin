@@ -1,3 +1,4 @@
+
 import pandas as pd
 from datetime import datetime, timedelta
 
@@ -6,8 +7,7 @@ def parse_date(date_str):
 
 def was_present(start, end, times):
     presence = timedelta(0)
-    # Modification pour calculer 20% de la durée de la conférence
-    required_duration = (end - start) * 0.2
+    half_duration = (end - start) / 2
     i = 0
     while i < len(times):
         arrival = times[i]
@@ -18,7 +18,7 @@ def was_present(start, end, times):
         if arrival < end and departure > start:
             presence += min(departure, end) - max(arrival, start)
 
-    return presence >= required_duration
+    return presence >= half_duration
 
 # Lecture des fichiers CSV
 horaires_confs = pd.read_csv('Exports/horaires-confs.csv', encoding='utf-8-sig')

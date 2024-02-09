@@ -21,7 +21,7 @@ Dans le fichier "1-Export-propre.csv", nous avons les informations suivantes pou
 - Ses informations personnelles
 - Un champs "Date" qui indique les horaires d'entrés et de sortie à la salle de conférence, a considérer dans l'ordre. Ainsi la première date est son entré dans la salle de conférence, la suivante sa sortie de la salle, et ainsi de suite. 
 
-On considère qu'un visiteur a assisté a une conférence s'il était présent pendant au moins 50% de cette même conférence.
+On considère qu'un visiteur a assisté a une conférence s'il était présent pendant au moins 20% de cette même conférence.
 S'il est rentré trop tard, ou sortie trop tot, nous ne le comptons pas comme présent.
 
 L'objectif : 
