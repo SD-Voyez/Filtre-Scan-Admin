@@ -26,7 +26,7 @@ S'il est rentré trop tard, ou sortie trop tot, nous ne le comptons pas comme pr
 
 L'objectif : 
 - Tu devras créer un script .py (nommé "2-Attribution-Conf.py") qui générera un fichier csv (nommé 2-Export-attribution.csv).
-- Ce fichier CSV devra comporter pour chaque conférences les visiteur présents, sous la fomre : Conférence, Nom, Prénom, Société, Fonction, Email, Code Postal / Ville
+- Ce fichier CSV devra comporter pour chaque conférences les visiteur présents, sous la fomre : Conference, Nom, Prenom, Societe, Fonction, Email, Code Postal / Ville
 - Tu pourras également indiquer à la fin de ce CSV, ceux qui ont assisté à aucune conférence.
 
 Est-ce que tu as besoin d'autres informations ?
