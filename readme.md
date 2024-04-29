@@ -12,23 +12,20 @@
 #### Schéma situationnel :
 Modèle exemple :
 ![Schema situationnel](https://github.com/SD-Voyez/Filtre-Scan-Admin/blob/main/Schema-config-visiteur-conf.png)
-#### Prompt utilisé :
-Voici deux fichier cvs :
+#### Réflexion :
+Nous avons deux fichiers cvs :
 - 1 fichier "horaires-confs.csv" avec les horaires de plusieurs conférences qui ont eu le lieu le jour de l'événement.
 - 1 fichier "1-Export-propre.csv" avec la liste des visiteurs ayant participés à ces conférences le jour de l'événement.
 
 Dans le fichier "1-Export-propre.csv", nous avons les informations suivantes pour chaque visiteur :
 - Ses informations personnelles
-- Un champs "Date" qui indique les horaires d'entrés et de sortie à la salle de conférence, a considérer dans l'ordre. Ainsi la première date est son entré dans la salle de conférence, la suivante sa sortie de la salle, et ainsi de suite. 
+- Un champs "Date" qui indique les horaires d'entrés et de sortie à la salle de conférence, a considérer dans l'ordre. Ainsi la première date est son entré dans la salle de conférence, la suivante sa sortie de la salle, et ainsi de suite.
 
 On considère qu'un visiteur a assisté a une conférence s'il était présent pendant au moins 20% de cette même conférence.
 S'il est rentré trop tard, ou sortie trop tot, nous ne le comptons pas comme présent.
 
 L'objectif : 
-- Tu devras créer un script .py (nommé "2-Attribution-Conf.py") qui générera un fichier csv (nommé 2-Export-attribution.csv).
+- Générer via un script .py (nommé "2-Attribution-Conf.py") un fichier csv (nommé 2-Export-attribution.csv).
 - Ce fichier CSV devra comporter pour chaque conférences les visiteur présents, sous la fomre : Conference, Nom, Prenom, Societe, Fonction, Email, Code Postal / Ville
-- Tu pourras également indiquer à la fin de ce CSV, ceux qui ont assisté à aucune conférence.
-
-Est-ce que tu as besoin d'autres informations ?
-Si non, tu peux commencer.
+- Indiquer à la fin de ce CSV, ceux qui ont assisté à aucune conférence.
 
